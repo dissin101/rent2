@@ -1,0 +1,18 @@
+.container-top-deals, .container-all-deals {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container-sale {
+    margin-bottom: 2rem;
+}
+
+.container-sale h1 {
+    margin-top: 2rem;
+}
+
+.sale-filter {
+    margin: 0 10px;
+}
