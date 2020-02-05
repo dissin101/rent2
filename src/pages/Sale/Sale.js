@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+
+import { publications } from '../../constants';
 import { FeaturedDeals, AllDeals } from '../../components';
 import './Sale.css';
 
-const Sale = props => {
+const Sale = () => {
   const [searchInput, setSearchInput] = useState('');
   const handleChange = val => {
     setSearchInput(val);
@@ -10,7 +12,7 @@ const Sale = props => {
 
   let filter;
   if (searchInput === '') {
-    filter = props.publications[0].sale.map(sale => {
+    filter = publications[0].sale.map(sale => {
       return (
         <AllDeals
           key={sale.id}
@@ -24,7 +26,7 @@ const Sale = props => {
       );
     });
   } else {
-    filter = props.publications[0].sale.map(sale => {
+    filter = publications[0].sale.map(sale => {
       if (
         sale.mainInfo.includes(searchInput) ||
         sale.country.includes(searchInput)
@@ -41,6 +43,8 @@ const Sale = props => {
           />
         );
       }
+
+      return null;
     });
   }
 
@@ -53,7 +57,6 @@ const Sale = props => {
         <FeaturedDeals />
       </div>
       <h1> Все объявления</h1>
-      {/* <SaleFilter/> */}
 
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sale-filter">
