@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { FeaturedDeals, AllDeals, SaleFilter } from '../../components';
+import { FeaturedDeals, AllDeals } from '../../components';
 import './Sale.css'
 
 const Sale = (props) => {
@@ -45,14 +45,13 @@ const Sale = (props) => {
 
     return (
         <div className="container-sale">
-            <h1> Популярные предложения </h1>
+            <h1>Популярные предложения</h1>
             <div className="container-top-deals">
                 <FeaturedDeals />
                 <FeaturedDeals />
                 <FeaturedDeals />
             </div>
-            <h1> Все объявления</h1>
-            {/* <SaleFilter/> */} 
+            <h1>Все объявления</h1>
 
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark sale-filter">
