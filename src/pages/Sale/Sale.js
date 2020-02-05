@@ -6,47 +6,6 @@ import './Sale.css';
 
 const Sale = () => {
   const [searchInput, setSearchInput] = useState('');
-  const handleChange = val => {
-    setSearchInput(val);
-  };
-
-  let filter;
-  if (searchInput === '') {
-    filter = publications[0].sale.map(sale => {
-      return (
-        <AllDeals
-          key={sale.id}
-          mainInfo={sale.mainInfo}
-          firstImage={sale.firstImage}
-          floor={sale.floor}
-          price={sale.price}
-          watches={sale.watches}
-          country={sale.country}
-        />
-      );
-    });
-  } else {
-    filter = publications[0].sale.map(sale => {
-      if (
-        sale.mainInfo.includes(searchInput) ||
-        sale.country.includes(searchInput)
-      ) {
-        return (
-          <AllDeals
-            key={sale.id}
-            mainInfo={sale.mainInfo}
-            firstImage={sale.firstImage}
-            floor={sale.floor}
-            price={sale.price}
-            watches={sale.watches}
-            country={sale.country}
-          />
-        );
-      }
-
-      return null;
-    });
-  }
 
   return (
     <div className="container-sale">
@@ -56,8 +15,8 @@ const Sale = () => {
         <FeaturedDeals />
         <FeaturedDeals />
       </div>
-      <h1> Все объявления</h1>
 
+      <h1> Все объявления</h1>
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sale-filter">
           <form className="form-inline">
@@ -67,7 +26,7 @@ const Sale = () => {
               placeholder="Караганда"
               aria-label="Search"
               value={searchInput}
-              onChange={e => handleChange(e.target.value)}
+              onChange={e => setSearchInput(e.target.value)}
             />
             <button className="btn btn-success my-2 my-sm-0" type="submit">
               Найти
@@ -75,7 +34,25 @@ const Sale = () => {
           </form>
         </nav>
       </div>
-      <div className="container-all-deals">{filter}</div>
+
+      <div className="container-all-deals">
+        {publications
+          .filter(
+            ({ mainInfo, country }) =>
+              mainInfo.includes(searchInput) || country.includes(searchInput)
+          )
+          .map(publication => (
+            <AllDeals
+              key={publication.id}
+              mainInfo={publication.mainInfo}
+              firstImage={publication.firstImage}
+              floor={publication.floor}
+              price={publication.price}
+              watches={publication.watches}
+              country={publication.country}
+            />
+          ))}
+      </div>
     </div>
   );
 };
