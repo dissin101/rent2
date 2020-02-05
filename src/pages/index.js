@@ -7,4 +7,13 @@ import PersonalPanel from './PersonalPanel';
 import Registration from './Registration';
 import Login from './Login';
 
-export {Main, Rent, Sale, News, AddPublication, PersonalPanel, Registration, Login};
+export {
+  Main,
+  Rent,
+  Sale,
+  News,
+  AddPublication,
+  PersonalPanel,
+  Registration,
+  Login
+};

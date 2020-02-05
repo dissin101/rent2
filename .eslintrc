@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "printWidth": 80
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "react/jsx-fragments": "off",
+    "no-underscore-dangle": "off"
+  },
+  "plugins": [
+    "prettier"
+  ]
+}
